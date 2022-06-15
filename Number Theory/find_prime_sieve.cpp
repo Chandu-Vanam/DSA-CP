@@ -1,3 +1,7 @@
+
+Time Complexity - 0(N*log(log(N))
+Space Complexity - 0{N)
+
 bool isprime(int n)
 {
     if(n==1)
