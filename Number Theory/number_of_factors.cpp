@@ -1,0 +1,49 @@
+ #include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int numbers[1000001];
+  for(int i=0;i<1000001;i++)
+  {
+    numbers[i]=1;
+  }
+  numbers[0]=-1;
+  numbers[1]=0;
+  
+  for(int i=2;i<=1000000;i++)
+  {
+    if(numbers[i]==1)
+    {
+      for(int j=i*2;j<=1000000;j+=i)
+      {
+        numbers[j]++;
+      }
+    }
+  }
+  
+  for(int i=2;i<=1000000;i++)
+  {
+    if(numbers[i]!=1)
+    {
+      numbers[i]--;
+    }
+  }
+  
+  int t;
+  cin>>t;
+  
+  while(t--)
+  {
+    int a,b,n,ans=0;
+    cin>>a>>b>>n;
+    for(int i=a;i<=b;i++)
+    {
+      if(numbers[i]==n)
+      {
+        ans++;
+      }
+    }
+    cout<<ans<<endl;
+  }
+}
