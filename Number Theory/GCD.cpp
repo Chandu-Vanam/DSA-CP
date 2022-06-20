@@ -1,3 +1,7 @@
+
+// Time Complexity:0(log(min(a,b))
+// Space complexity:0(1)
+
 int solve(int a,int b)
 {
     // if(a==0)
