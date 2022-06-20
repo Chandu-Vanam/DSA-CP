@@ -1,4 +1,9 @@
 
+// Time complexity: 0(M*log(log(M)))
+// Space complexity:0(M)
+//     M is MAX_VAL^0.5
+    
+    
 #include <iostream>
 #include <vector>
 using namespace std;
