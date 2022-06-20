@@ -1,4 +1,8 @@
- #include<bits/stdc++.h>
+ 
+// Time complexity: 0(N*(log(log(N)))
+// Space complexity: 0(N)
+
+#include<bits/stdc++.h>
 using namespace std;
 
 int main()
