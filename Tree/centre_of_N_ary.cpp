@@ -1,8 +1,10 @@
 
+
+
 //  TC- 0(N)
 //  SC- 0(N)
   
-bool findPath(vector<vector<int>>&tree,int node1,int node2,int par,vector<int>&path)
+bool findPath(vector<vector<int>>&tree,int node1,int node2,int parent,vector<int>&path)
 {
   if(node1==node2)
   {
@@ -10,11 +12,11 @@ bool findPath(vector<vector<int>>&tree,int node1,int node2,int par,vector<int>&p
     return true;
   }
   
-  for(int i=0;i<tree[node1].size();i++)
+  for(int i=0;i<tree[node1].size();++i)
   {
-    if(tree[node1[i]!=parent)
+    if(tree[node1][i]!=parent)
     {
-      if(findPath(tree,tree[node1[i],node2,node1,path))
+      if(findPath(tree,tree[node1][i],node2,node1,path))
       {
         path.push_back(node1);
         return true;
@@ -29,7 +31,7 @@ void findNode(vector<vector<int>>&tree,int u,int par,int height,int &maxheight,i
 {
     if(height>maxheight)
     {
-        maxHeight=hieght;
+        maxheight=height;
         node=u;
     }
 
@@ -37,19 +39,19 @@ void findNode(vector<vector<int>>&tree,int u,int par,int height,int &maxheight,i
     {
         if(tree[u][i]!=par)
         {
-            find(tree,tree[u][i],height+1,maxheight,node);
+            findNode(tree,tree[u][i],u,height+1,maxheight,node);
         }
     }
 }
 
 
-vector<int> center(int n,vector<vector<int>>&edges)
+vector<int> Center(int n,vector<vector<int>>&edges)
 {
     vector<vector<int>>tree(n);
     for(int i=0;i<n-1;++i)
     {
-        tree[edges[i][0]].push_back(edges[i][0]);
-        tree[edges[i][1]].push_back(edges[i][1]);        
+        tree[edges[i][0]].push_back(edges[i][1]);
+        tree[edges[i][1]].push_back(edges[i][0]);        
     }
     
     int maxheight=-1;
@@ -58,7 +60,7 @@ vector<int> center(int n,vector<vector<int>>&edges)
     findNode(tree,0,-1,0,maxheight,node1);
 
     maxheight=-1;
-    ind node2=-1;
+    int node2=-1;
 
     findNode(tree,node1,-1,0,maxheight,node2);
 
